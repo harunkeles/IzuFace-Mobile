@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:izuface_mobile/core/config/theme/theme.dart';
-
-import 'package:izuface_mobile/core/util/components/colors/CustomAppColors.dart';
-import 'package:izuface_mobile/modules/home/home2.dart';
+import 'package:izuface_mobile/core/util/components/appbars/AppBars.dart';
+import 'package:izuface_mobile/modules/appHome/screens/AppHome.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'İzuFace',
-      theme: CustomTheme().lightThemeData,
+      debugShowCheckedModeBanner: false,
+      theme: CustomTheme.lightThemeData,
       home: Home(),
     );
   }
@@ -26,17 +26,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppColors().bloodRed.toString()),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Home2(),
-      ),
+      appBar: baseAppBar(context),
+      body: AppHome()
     );
   }
 }

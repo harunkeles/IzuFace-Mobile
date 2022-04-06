@@ -46,19 +46,15 @@ class CustomElevatedButton implements CustomButton {
         children: [
           icon == null
               ? Container()
-              : Container(
-                  child: icon!,
-                  // width: context.dynamicWidth(0.08),
-                  constraints: BoxConstraints(
-                      // maxWidth: context.dynamicWidth(0.08),
-                      ),
+              : Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: context.dynamicWidth(0.001),
                   ),
+                  child: icon!,
                 ),
           text == null
               ? Container()
-              : Container(
+              : Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: context.dynamicWidth(0.01),
                   ),
@@ -87,7 +83,7 @@ class CustomElevatedButton implements CustomButton {
 
   buttonStyle(BuildContext context) {
     return ElevatedButton.styleFrom(
-      primary: AppColors().bloodRed,
+      // primary: AppColors().bloodRed,
       padding: EdgeInsets.symmetric(
           horizontal: context.dynamicWidth(0.08),
           vertical: context.dynamicHeight(0.015)),

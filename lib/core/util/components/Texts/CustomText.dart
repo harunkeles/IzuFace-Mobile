@@ -34,6 +34,7 @@ class CustomText {
     this.decoration,
   });
 
+
   Widget customText_1() {
     return Text(
       "$text",
@@ -42,8 +43,8 @@ class CustomText {
           fontSize: fontSize == null ? 25.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
-          color: color == null ? Colors.black : color,
-          backgroundColor: bgColor == null ? Colors.transparent : bgColor,
+          color: color,
+          backgroundColor: bgColor,
           letterSpacing: letterSpacing == null ? 0.5 : letterSpacing,
           wordSpacing: wordSpacing == null ? 0 : wordSpacing,
           shadows: shadow == null ? [] : shadow,
@@ -65,8 +66,8 @@ class CustomText {
           fontSize: fontSize == null ? 25.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
-          color: color == null ? Colors.black : color,
-          backgroundColor: bgColor == null ? Colors.transparent : bgColor,
+          color: color,
+          backgroundColor: bgColor,
           letterSpacing: letterSpacing == null ? 0.5 : letterSpacing,
           wordSpacing: wordSpacing == null ? 0 : wordSpacing,
           shadows: shadow == null ? [] : shadow,
@@ -88,8 +89,8 @@ class CustomText {
           fontSize: fontSize == null ? 25.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
-          color: color == null ? Colors.black : color,
-          backgroundColor: bgColor == null ? Colors.transparent : bgColor,
+          color: color,
+          backgroundColor: bgColor,
           letterSpacing: letterSpacing == null ? 0.5 : letterSpacing,
           wordSpacing: wordSpacing == null ? 0 : wordSpacing,
           shadows: shadow == null ? [] : shadow,
@@ -111,8 +112,8 @@ class CustomText {
           fontSize: fontSize == null ? 25.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
-          color: color == null ? Colors.black : color,
-          backgroundColor: bgColor == null ? Colors.transparent : bgColor,
+          color: color,
+          backgroundColor: bgColor,
           letterSpacing: letterSpacing == null ? 0.5 : letterSpacing,
           wordSpacing: wordSpacing == null ? 0 : wordSpacing,
           shadows: shadow == null ? [] : shadow,

@@ -46,7 +46,7 @@ class CustomTextButton implements CustomButton {
                   child: CustomText(
                     text: '$text',
                     fontSize: 16,
-                    color: AppColors().bloodRed,
+                    // color: AppColors().bloodRed,
                     fontWeight: FontWeight.w600,
                   ).customText_2(),
                 )
