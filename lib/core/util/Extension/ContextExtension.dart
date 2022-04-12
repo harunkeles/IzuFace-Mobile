@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 extension ContextExtension on BuildContext {
+  double get infinityWidth => MediaQuery.of(this).size.width;
+  double get infinityHeight => MediaQuery.of(this).size.height;
   double dynamicWidth(double val) => MediaQuery.of(this).size.width * val;
   double dynamicHeight(double val) => MediaQuery.of(this).size.height * val;
 }
@@ -22,4 +24,8 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get lowPaddingAllow => EdgeInsets.all(lowValueWidth);
   EdgeInsets get mediumPaddingAllow => EdgeInsets.all(mediumValueWidth);
   EdgeInsets get highPaddingAllow => EdgeInsets.all(highValueWidth);
+}
+
+extension InitialLocalDate on BuildContext {
+ String get languageCode => Localizations.localeOf(this).languageCode;
 }

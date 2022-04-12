@@ -5,10 +5,22 @@ import 'package:izuface_mobile/core/util/components/colors/CustomAppColors.dart'
 
 class CustomElevatedButton implements CustomButton {
   @override
-  Widget? icon;
+  Key? key;
 
   @override
-  Key? key;
+  IconData? icon;
+
+  @override
+  double? iconSize;
+
+  @override
+  Color? iconColor;
+
+  @override
+  double? height;
+
+  @override
+  double? width;
 
   @override
   VoidCallback? onPressed;
@@ -18,6 +30,16 @@ class CustomElevatedButton implements CustomButton {
 
   @override
   String? text;
+
+  @override
+  double? horizontal;
+
+  @override
+  double? vertical;
+
+  @override
+  Size? size;
+
 
   Widget _customButtonDesign(BuildContext context) {
     return Container(
@@ -48,15 +70,24 @@ class CustomElevatedButton implements CustomButton {
               ? Container()
               : Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: context.dynamicWidth(0.001),
+                    vertical: vertical == null
+                        ? context.dynamicHeight(0.001)
+                        : vertical!,
                   ),
-                  child: icon!,
+                  child: FittedBox(
+                    child: Icon(
+                      icon,
+                      size: iconSize != null ? iconSize : 10,
+                    ),
+                  ),
                 ),
           text == null
               ? Container()
               : Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: context.dynamicWidth(0.01),
+                    horizontal: horizontal == null
+                        ? context.dynamicWidth(0.01)
+                        : horizontal!,
                   ),
                   child: Text('$text'),
                 )
@@ -93,4 +124,10 @@ class CustomElevatedButton implements CustomButton {
       ),
     );
   }
+
+  @override
+  EdgeInsetsGeometry? innerPadding;
+
+  @override
+  EdgeInsetsGeometry? overPadding;
 }

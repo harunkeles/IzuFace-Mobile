@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:izuface_mobile/core/config/theme/theme.dart';
 import 'package:izuface_mobile/core/util/components/appbars/AppBars.dart';
 import 'package:izuface_mobile/modules/appHome/screens/AppHome.dart';
+import 'package:izuface_mobile/modules/appHome/viewmodel/AppHomeViewModel.dart';
 
 void main() {
   runApp(MyApp());
+  initializeDateFormatting('tr_TR', null);
 }
 
 class MyApp extends StatelessWidget {
@@ -20,14 +23,19 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
+  NormalPostViewModel normalPostViewModel = NormalPostViewModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: baseAppBar(context),
-      body: AppHome()
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          baseAppBar(context),
+        ],
+        body: AppHome(),
+      ),
     );
   }
 }

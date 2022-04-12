@@ -40,7 +40,7 @@ class CustomText {
       "$text",
       style: GoogleFonts.robotoSlab(
         textStyle: TextStyle(
-          fontSize: fontSize == null ? 25.0 : fontSize,
+          fontSize: fontSize == null ? 15.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
           color: color,
@@ -63,7 +63,7 @@ class CustomText {
       "$text",
       style: GoogleFonts.sourceSansPro(
         textStyle: TextStyle(
-          fontSize: fontSize == null ? 25.0 : fontSize,
+          fontSize: fontSize == null ? 15.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
           color: color,
@@ -86,7 +86,7 @@ class CustomText {
       "$text",
       style: GoogleFonts.ptSans(
         textStyle: TextStyle(
-          fontSize: fontSize == null ? 25.0 : fontSize,
+          fontSize: fontSize == null ? 15.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
           color: color,
@@ -109,7 +109,7 @@ class CustomText {
       "$text",
       style: GoogleFonts.openSans(
         textStyle: TextStyle(
-          fontSize: fontSize == null ? 25.0 : fontSize,
+          fontSize: fontSize == null ? 15.0 : fontSize,
           fontWeight: fontWeight == null ? FontWeight.w500 : fontWeight,
           fontStyle: fontStyle == null ? FontStyle.normal : fontStyle,
           color: color,

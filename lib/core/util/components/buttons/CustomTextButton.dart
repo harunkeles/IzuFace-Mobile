@@ -3,13 +3,32 @@ import 'package:izuface_mobile/core/util/Extension/ContextExtension.dart';
 import 'package:izuface_mobile/core/util/components/Texts/CustomText.dart';
 import 'package:izuface_mobile/core/util/components/buttons/CustomButton.dart';
 import 'package:izuface_mobile/core/util/components/colors/CustomAppColors.dart';
+import 'package:izuface_mobile/core/util/components/fonts/CustomFontSize.dart';
 
 class CustomTextButton implements CustomButton {
   @override
-  Widget? icon;
+  Key? key;
 
   @override
-  Key? key;
+  IconData? icon;
+
+  @override
+  double? iconSize;
+
+  @override
+  Color? iconColor;
+
+  @override
+  EdgeInsetsGeometry? overPadding;
+
+  @override
+  EdgeInsetsGeometry? innerPadding;
+
+  @override
+  double? height;
+
+  @override
+  double? width;
 
   @override
   VoidCallback? onPressed;
@@ -20,9 +39,35 @@ class CustomTextButton implements CustomButton {
   @override
   String? text;
 
+  @override
+  double? horizontal;
+
+  @override
+  double? vertical;
+
+  @override
+  Size? size;
+
+  CustomTextButton({
+    this.text,
+    this.icon,
+    this.iconSize,
+    this.iconColor,
+    this.overPadding,
+    this.innerPadding,
+    this.width,
+    this.height,
+    this.key,
+    this.style,
+    this.horizontal,
+    this.vertical,
+    this.onPressed,
+    this.size,
+  });
 
   Widget _customButtonDesign(BuildContext context) {
     return Container(
+      padding: innerPadding == null ? EdgeInsets.zero : innerPadding,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,22 +75,27 @@ class CustomTextButton implements CustomButton {
         children: [
           icon == null
               ? Container()
-              : Container(
-                  height: 25,
-                  child: FittedBox(child: icon!),
-                  padding: EdgeInsets.symmetric(
-                    vertical: context.dynamicHeight(0.001),
-                  ),
-                ),
+              : (iconSize != null
+                  ? Icon(
+                      icon,
+                      size: iconSize,
+                      color: iconColor != null ? iconColor : AppColors().bloodRed,
+                    )
+                  : Icon(
+                      icon,
+                      color: iconColor != null ? iconColor : AppColors().bloodRed,
+                    )),
           text == null
               ? Container()
               : Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: context.dynamicWidth(0.01),
+                    horizontal: horizontal == null
+                        ? context.dynamicWidth(0.01)
+                        : horizontal!,
                   ),
                   child: CustomText(
                     text: '$text',
-                    fontSize: 16,
+                    fontSize: h7(),
                     // color: AppColors().bloodRed,
                     fontWeight: FontWeight.w600,
                   ).customText_2(),
@@ -55,26 +105,26 @@ class CustomTextButton implements CustomButton {
     );
   }
 
-  CustomTextButton({
-    this.text,
-    this.icon,
-    this.key,
-    this.style,
-  });
-
   Widget customTextButton(BuildContext context) {
-    return TextButton(
-      key: key == null ? null : key,
-      onPressed: onPressed == null ? () {} : onPressed,
-      style: style == null ? null : style,
-      child: _customButtonDesign(context),
-      // onFocusChange: onFocusChange == null ? null : onFocusChange,
-      // onHover: onHover == null ? null : onHover,
-      // onLongPress: onLongPress == null ? null : onLongPress,
-      // autofocus: autofocus == null ? false : autofocus!,
-      // clipBehavior: clipBehavior == null ? Clip.none : clipBehavior!,
+    return Container(
+      height: height == null ? 20 : height,
+      width: width == null ? 20 : width,
+      padding: overPadding == null ? EdgeInsets.zero : overPadding,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: TextButton(
+          key: key == null ? null : key,
+          onPressed: onPressed == null ? () {} : onPressed,
+          style: style == null
+              ? TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  minimumSize: size == null ? Size.zero : size,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                )
+              : style,
+          child: _customButtonDesign(context),
+        ),
+      ),
     );
   }
-
-
 }

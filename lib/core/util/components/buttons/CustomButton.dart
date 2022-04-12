@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 
 abstract class CustomButton {
   String? text;
-  Widget? icon;
+  IconData? icon;
+  double? iconSize;
+  double? height;
+  double? width;
+  EdgeInsetsGeometry? overPadding;
+  EdgeInsetsGeometry? innerPadding;
+  Color? iconColor;
   Key? key;
   VoidCallback? onPressed;
   ButtonStyle? style;
+  double? vertical;
+  double? horizontal;
+  Size? size;
+
 
   Widget? _customButtonDesign();
 
